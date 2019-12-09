@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import { Menu, Grid, Header, Segment } from 'semantic-ui-react'
 import './App.css'
-// import logo from '../fd-logo.svg'
 import ThemeSelector from './ThemeSelector'
 import MyPage from "../MyPage/MyPage"
 import Resume from "../Resume/Resume"
@@ -17,12 +16,13 @@ function App() {
 
 const showThemedPage = (color) => {
   return (
-    <Grid centered verticalAlign='middle' container={true}>
+    <Grid centered verticalAlign='middle' container >
       <Grid.Row>
         <Grid.Column width={12} textAlign='center'>
         <Segment inverted textAlign='center'>
           <Header as='h1' inverted color={color}>
-            Feroz Damani
+            <div>Feroz Damani</div>
+            <div>Frontend Engineer</div>
           </Header>
         </Segment>
         </Grid.Column>
@@ -38,7 +38,7 @@ const showThemedPage = (color) => {
               as={Link}
               to={'/'}
             >
-              Home
+              <strong>Home</strong>
             </Menu.Item>
 
             <Menu.Item
@@ -48,17 +48,17 @@ const showThemedPage = (color) => {
               as={Link}
               to={'/my-resume'}
             >
-              Resume
+              <strong>Resume</strong>
             </Menu.Item>
           </Menu>
         </Grid.Column>
       </Grid.Row>
 
       <Grid.Row>
-        <Grid.Column width={14} textAlign='center'>
+        <Grid.Column width={12}>
           <Switch>
             <Route exact path='/' component={MyPage} />
-            <Route exact path='/my-resume' component={Resume} />
+            <Route exact path='/my-resume' render={(props) => <Resume {...props} color={color} />}/>
             <Route render={function () {
               return <p>Not found</p>
             }} />
