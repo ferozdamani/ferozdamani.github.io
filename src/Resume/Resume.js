@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, List, Grid, Label, Icon } from 'semantic-ui-react'
+import { Image, List, Grid, Label, Icon, Accordion } from 'semantic-ui-react'
 import myImage from '../assets/author-img.JPG'
 import './Resume.css'
 
@@ -39,18 +39,26 @@ const Resume = React.memo(({ color }) => {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                    {/* <Divider vertical>Skills</Divider> */}
                     <Grid.Column width={10} textAlign='center'>
                     <Label.Group size='big'>
+                        <Label><Icon name='js' size='big' color='green'/>Javascript</Label>
                         <Label><Icon name='html5' size='big' color='orange'/>HTML</Label>
                         <Label><Icon name='css3' size='big' color='red'/>CSS</Label>
-                        <Label><Icon name='js' size='big' color='green'/>Javascript</Label>
                         <Label><Icon name='react' size='big' color='blue' loading/>ReactJs</Label>
                         <Label><Icon name='npm' size='big' color='black'/>npm</Label>
                     </Label.Group>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
+            <h2>Work Experience</h2>
+            <Accordion>
+                <Accordion.Title>
+                    Wells Fargo &amp; Co.
+                </Accordion.Title>
+                <Accordion.Content active={true}>
+                    I have worked on Multiple projects at Wells Fargo. Executing various job responsibilities.
+                </Accordion.Content>
+            </Accordion>
         </React.Fragment>
     )
 });
