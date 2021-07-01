@@ -16,9 +16,9 @@ function App() {
 
 const showThemedPage = (color) => {
   return (
-    <Grid centered verticalAlign='middle' container >
+    <Grid centered verticalAlign='middle' container>
       <Grid.Row>
-        <Grid.Column width={12} textAlign='center'>
+        <Grid.Column textAlign='center'>
         <Segment inverted textAlign='center'>
           <Header as='h1' inverted color={color}>
             <div>Feroz Damani</div>
@@ -29,7 +29,7 @@ const showThemedPage = (color) => {
       </Grid.Row>
 
       <Grid.Row>
-        <Grid.Column width={8} textAlign='center'>
+        <Grid.Column textAlign='center'>
         <Menu stackable inverted widths={2} color={color}>
             <Menu.Item
               name='myPage'
@@ -55,7 +55,7 @@ const showThemedPage = (color) => {
       </Grid.Row>
 
       <Grid.Row>
-        <Grid.Column width={12}>
+        <Grid.Column>
           <Switch>
             <Route exact path='/' component={MyPage} />
             <Route exact path='/my-resume' render={(props) => <Resume {...props} color={color} />}/>
