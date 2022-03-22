@@ -7,7 +7,7 @@ import MyPage from "../MyPage/MyPage"
 import Resume from "../Resume/Resume"
 
 function App() {
-  const [activeItem, setActiveItem] = useState('myPage')
+  const [activeItem, setActiveItem] = useState('resume')
   const [themingPageColor, setThemingPageColor] = useState('blue')
   
   const handleItemClick = (e, { name }) => {
@@ -32,23 +32,23 @@ const showThemedPage = (color) => {
         <Grid.Column textAlign='center'>
         <Menu stackable inverted widths={2} color={color}>
             <Menu.Item
-              name='myPage'
-              active={activeItem === 'myPage'}
-              onClick={handleItemClick}
-              as={Link}
-              to={'/'}
-            >
-              <strong>Home</strong>
-            </Menu.Item>
-
-            <Menu.Item
               name='resume'
               active={activeItem === 'resume'}
               onClick={handleItemClick}
               as={Link}
-              to={'/my-resume'}
+              to={'/'}
             >
               <strong>Resume</strong>
+            </Menu.Item>
+            
+            <Menu.Item
+              name='myPage'
+              active={activeItem === 'myPage'}
+              onClick={handleItemClick}
+              as={Link}
+              to={'/typed-page'}
+            >
+              <strong>typed.js Demo</strong>
             </Menu.Item>
           </Menu>
         </Grid.Column>
@@ -57,8 +57,8 @@ const showThemedPage = (color) => {
       <Grid.Row>
         <Grid.Column>
           <Switch>
-            <Route exact path='/' component={MyPage} />
-            <Route exact path='/my-resume' render={(props) => <Resume {...props} color={color} />}/>
+            <Route exact path='/' render={(props) => <Resume {...props} color={color} />}/>
+            <Route exact path='/typed-page' component={MyPage} />
             <Route render={function () {
               return <p>Not found</p>
             }} />
